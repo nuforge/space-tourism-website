@@ -78,6 +78,10 @@ img, picture {
     display: block;
 }
 
+picture[hidden] {
+    display: none;
+}
+
 /* make form elements easier to work with */
 input, button, textarea, select {
     font: inherit;
@@ -413,8 +417,8 @@ input, button, textarea, select {
     background-color: hsl(var(--clr-white) /.5);
 }
 
-.underline-indicators > [aria-selected="true"] {
-    border-color: hsl(var(--clr-white) /1 );
+.dot-indicators > [aria-selected="true"] {
+    background-color: hsl(var(--clr-white) / 1 );
 }
 
 .number-indicators > * {
@@ -537,6 +541,7 @@ body {
 .grid-container--destination > picture {
     grid-area: image;
     max-width: 60%;
+    align-self: start;
 }
 
 .grid-container--destination > .tab-list {
@@ -654,11 +659,14 @@ body {
 
 @media (min-width: 45em) {
     .grid-container--crew > picture {
-        max-width: 90%;
+        grid-column: span 2;
         align-self: end;
+        max-width: 100%;
     }
 
     .grid-container--crew {
+        justify-items: start;
+        grid-template-columns: minmax(1rem, 1fr) minmax(0, 40rem) minmax(0, 30rem) minmax(1rem, 1fr);
         grid-template-areas: 
             '. title title .'
             '. content image .'
