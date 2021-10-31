@@ -424,8 +424,8 @@ input, button, textarea, select {
 .number-indicators > * {
     display: grid;
     place-items: center;
-    height: 100%;
-    width: 100%;
+    height: 3rem;
+    width: 3rem;
     cursor: pointer;
     border-radius: 50%;
     aspect-ratio: 1;
@@ -505,6 +505,26 @@ body {
 @media (min-width: 45rem) {
     .crew {
         background-image: url(./assets/crew/background-crew-desktop.jpg);
+    }
+} 
+
+
+/* Technologuy */
+
+.technology {
+    background-image: url(./assets/technology/background-technology-mobile.jpg);
+}
+
+@media (min-width: 35rem) {
+    .technology {
+        background-position: center center;
+        background-image: url(./assets/technology/background-technology-tablet.jpg);
+    }
+}
+
+@media (min-width: 45rem) {
+    .technology {
+        background-image: url(./assets/technology/background-technology-desktop.jpg);
     }
 } 
 
@@ -675,6 +695,64 @@ body {
 
     .grid-container--crew > .dot-indicators {
         justify-self: start;
+    }
+
+}
+
+/* Technology */
+
+
+.grid-container--technology {
+    padding-inline: 0;
+    --flow-space: 2rem;
+    grid-template-areas:
+    'title'
+    'image'
+    'tabs'
+    'content' ;
+}
+
+.grid-container--technology > picture {
+    grid-area: image;
+}
+
+.grid-container--technology > .circle-list  {
+    grid-area: tabs;
+}
+
+.grid-container--technology > .technology-info {
+    grid-area: content;
+    padding-inline: 1rem;
+}
+
+
+
+@media (min-width: 35em ) and (max-width: 44.99em){
+    
+    .grid-container--technology .numbered-title{
+        padding-inline: 1rem;
+    }
+}
+
+
+@media (min-width: 45em) {
+    /* .grid-container--technology > picture > img {
+        max-width: initial;
+    } */
+
+    .circle-list {
+        flex-direction: column;
+    }
+
+    .grid-container--technology >  .tab-list {
+        justify-content: start;
+    }
+    .grid-container--technology {
+        grid-template-columns: minmax(1rem, 1fr)  minmax(1rem, 1fr) minmax(0, 30rem) minmax(0, 40rem);
+        grid-template-areas: 
+            '. title title .'
+            '. tabs content image'
+            '. tabs content image';
     }
 
 }
